@@ -1,7 +1,9 @@
 package com.example.myapplication22.domain
 
+import java.util.UUID
+
 class Store(
     var name: String,
     var address: String,
-    val id: Int = 0,
+    var id: UUID = UUID.randomUUID(),
 )

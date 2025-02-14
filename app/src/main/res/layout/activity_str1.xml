@@ -9,28 +9,29 @@
 
     <Button
         android:id="@+id/bb2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="back"
+        android:layout_width="187dp"
+        android:layout_height="61dp"
+        android:text="вернутся к списку"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.031" />
 
     <EditText
         android:id="@+id/MainNameobj"
-        android:layout_width="194dp"
-        android:layout_height="68dp"
+        android:layout_width="202dp"
+        android:layout_height="51dp"
         android:ems="10"
-        android:hint="object name"
+        android:hint="название предмета"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.155" />
 
     <TextView
         android:id="@+id/textView3"
@@ -43,41 +44,19 @@
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.313" />
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="409dp"
-        android:layout_height="461dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.441" />
 
     <Button
         android:id="@+id/saveB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="save"
+        android:layout_width="141dp"
+        android:layout_height="68dp"
+        android:text="сохранить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.961"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <EditText
         android:id="@+id/numbers"
@@ -85,11 +64,11 @@
         android:layout_height="120dp"
         android:layout_marginStart="16dp"
         android:ems="10"
+        android:hint="описание предмета"
         android:inputType="text"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135" />
+        app:layout_constraintVertical_bias="0.256" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

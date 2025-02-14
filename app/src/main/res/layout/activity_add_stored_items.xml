@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".persistence.AddStoredItems">
+
+    <Spinner
+        android:id="@+id/itemSpinner"
+        android:layout_width="292dp"
+        android:layout_height="39dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <Spinner
+        android:id="@+id/storeSpinner"
+        android:layout_width="292dp"
+        android:layout_height="42dp"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="369dp" />
+
+    <EditText
+        android:id="@+id/addPlace"
+        android:layout_width="279dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="расположение предмета"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="96dp" />
+
+    <TextView
+        android:id="@+id/itemView"
+        android:layout_width="168dp"
+        android:layout_height="47dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="152dp" />
+
+    <TextView
+        android:id="@+id/storesView"
+        android:layout_width="180dp"
+        android:layout_height="59dp"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="310dp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:text="вернутся к списку"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/saveButtom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="сохранить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

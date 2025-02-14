@@ -1,8 +1,11 @@
 package com.example.myapplication22.domain
 
+import android.content.ClipData
+import java.util.UUID
+
 class StoredItem(
-    val store: Store,
-    val item: Item,
-    val place: String,
-    val id : Int =0
+    var store: Store,
+    var item: Item,
+    var place: String,
+    var id: UUID = UUID.randomUUID(),
 )

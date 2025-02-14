@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import com.example.myapplication22.domain.Item
 import com.example.myapplication22.domain.Store
 import com.example.myapplication22.domain.StoredItem
+import java.util.UUID
 import kotlin.collections.ArrayList
 
 class StoreDatabase(context: Context) :
@@ -36,7 +37,7 @@ class StoreDatabase(context: Context) :
     override fun onCreate(db: SQLiteDatabase?) {
         val storeTable ="""
             CREATE TABLE $STORE_TABLE_NAME(
-            $STORE_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            $STORE_ID UUID PRIMARY KEY NOT NULL,
             $STORE_NAME TEXT,
             $STORE_ADDRESS TEXT)                        
         """.trimIndent()
@@ -44,7 +45,7 @@ class StoreDatabase(context: Context) :
 
         val itemTable ="""
             CREATE TABLE $ITEM_TABLE_NAME(
-            $ITEM_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            $ITEM_ID UUID PRIMARY KEY NOT NULL,
             $ITEM_NAME TEXT,
             $ITEM_DESC TEXT)                        
         """.trimIndent()
@@ -53,7 +54,7 @@ class StoreDatabase(context: Context) :
 
         val storedItemsTable ="""
         CREATE TABLE $STOREDITEM_TABLE_NAME(
-            $STOREDITEM_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            $STOREDITEM_ID UUID PRIMARY KEY NOT NULL,
             $STOREDITEM_STORE_ID INTEGER,
             $STOREDITEM_ITEM_ID INTEGER, 
             $STOREDITEM_PLACE TEXT,
@@ -84,6 +85,7 @@ class StoreDatabase(context: Context) :
 
     fun addStore(store: Store) {
         val values = ContentValues().apply {
+            put(STORE_ID, store.id.toString())
             put(STORE_NAME, store.name)
             put(STORE_ADDRESS, store.address)
         }
@@ -93,6 +95,7 @@ class StoreDatabase(context: Context) :
     }
     fun addItem(item: Item) {
         val values = ContentValues().apply {
+            put(ITEM_ID, item.id.toString())
             put(ITEM_NAME, item.name)
             put(ITEM_DESC, item.description)
         }
@@ -107,7 +110,7 @@ class StoreDatabase(context: Context) :
         val cursor = db.query(STORE_TABLE_NAME, arrayOf(STORE_ID, STORE_NAME, STORE_ADDRESS), null, null, null, null, null)
         while (cursor.moveToNext()) {
             val store =  Store(
-                id = cursor.getInt(cursor.getColumnIndexOrThrow(STORE_ID)),
+                id = UUID.fromString(cursor.getString(cursor.getColumnIndexOrThrow(STORE_ID))),
                 name = cursor.getString(cursor.getColumnIndexOrThrow(STORE_NAME)),
                 address = cursor.getString(cursor.getColumnIndexOrThrow(STORE_ADDRESS))
             )
@@ -123,7 +126,7 @@ class StoreDatabase(context: Context) :
         val cursor = db.query(ITEM_TABLE_NAME, arrayOf(ITEM_ID, ITEM_NAME, ITEM_DESC), null, null, null, null, null)
         while (cursor.moveToNext()) {
             val item =  Item(
-                id = cursor.getInt(cursor.getColumnIndexOrThrow(ITEM_ID)),
+                id = UUID.fromString(cursor.getString(cursor.getColumnIndexOrThrow(ITEM_ID))),
                 name = cursor.getString(cursor.getColumnIndexOrThrow(ITEM_NAME)),
                 description = cursor.getString(cursor.getColumnIndexOrThrow(ITEM_DESC))
             )
@@ -136,8 +139,9 @@ class StoreDatabase(context: Context) :
 
     fun addStoredItems(storedItem: StoredItem) {
         val values = ContentValues().apply {
-            put(STOREDITEM_ITEM_ID, storedItem.item.id)
-            put(STOREDITEM_STORE_ID, storedItem.store.id)
+            put(STOREDITEM_ID, storedItem.id.toString())
+            put(STOREDITEM_ITEM_ID, storedItem.item.id.toString())
+            put(STOREDITEM_STORE_ID, storedItem.store.id.toString())
             put(STOREDITEM_PLACE, storedItem.place)
         }
         val db = writableDatabase
@@ -151,13 +155,13 @@ class StoreDatabase(context: Context) :
         val db = readableDatabase
         val cursor = db.query(STOREDITEM_TABLE_NAME, arrayOf(STOREDITEM_ITEM_ID, STOREDITEM_STORE_ID, STOREDITEM_PLACE), null, null, null, null, null)
         while (cursor.moveToNext()) {
-            val storeId = cursor.getInt(cursor.getColumnIndexOrThrow(STOREDITEM_STORE_ID))
-            val store = stores.first { it.id == storeId }
-            val itemId = cursor.getInt(cursor.getColumnIndexOrThrow(STOREDITEM_ITEM_ID))
-            val item = items.first { it.id == itemId }
+            val storeId = cursor.getString(cursor.getColumnIndexOrThrow(STOREDITEM_STORE_ID))
+            val store = stores.first { it.id == UUID.fromString(storeId) }
+            val itemId = cursor.getString(cursor.getColumnIndexOrThrow(STOREDITEM_ITEM_ID))
+            val item = items.first { it.id == UUID.fromString(itemId) }
 
             val storedItem =  StoredItem(
-                id = cursor.getInt(cursor.getColumnIndexOrThrow(STOREDITEM_ITEM_ID)),
+                id = UUID.fromString(cursor.getString(cursor.getColumnIndexOrThrow(STOREDITEM_ITEM_ID))),
                 store = store,
                 item = item,
                 place =  cursor.getString(cursor.getColumnIndexOrThrow(STOREDITEM_PLACE)),
@@ -168,4 +172,5 @@ class StoreDatabase(context: Context) :
         db.close()
         return storedItems
     }
+
 }
