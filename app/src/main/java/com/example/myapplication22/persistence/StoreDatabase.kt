@@ -32,6 +32,15 @@ class StoreDatabase(context: Context) :
         const val STOREDITEM_ITEM_ID = "item_id"
         const val STOREDITEM_PLACE = "place"
 
+        var storeDatabase: StoreDatabase?= null
+
+        fun init(context: Context) {
+            storeDatabase = StoreDatabase(context)
+        }
+
+        fun getDB() =
+            requireNotNull(storeDatabase)
+
     }
 
     override fun onCreate(db: SQLiteDatabase?) {

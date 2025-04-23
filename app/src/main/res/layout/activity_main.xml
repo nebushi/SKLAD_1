@@ -9,9 +9,9 @@
 
     <Button
         android:id="@+id/obej"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="go to objectes"
+        android:layout_width="144dp"
+        android:layout_height="80dp"
+        android:text="перейти к предметам"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
@@ -21,24 +21,37 @@
 
     <Button
         android:id="@+id/plusStr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add a storage"
+        android:layout_width="137dp"
+        android:layout_height="77dp"
+        android:text="добавить склад"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.971"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
     <ListView
         android:id="@+id/storageList"
-        android:layout_width="409dp"
-        android:layout_height="665dp"
+        android:layout_width="383dp"
+        android:layout_height="568dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.098" />
+
+    <Button
+        android:id="@+id/addStoredItemButton"
+        android:layout_width="134dp"
+        android:layout_height="47dp"
+        android:text="сортировать"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.861" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

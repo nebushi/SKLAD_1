@@ -3,6 +3,7 @@ package com.example.myapplication22
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
@@ -46,6 +47,11 @@ class obj1 : AppCompatActivity() {
         addObj.setOnClickListener { view ->
             val eaa22 = Intent(this, str1::class.java)
             startActivity(eaa22)
+        }
+        ItemList.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+            val intent = Intent(this, ItemsView::class.java)
+            intent.putExtra("ITEM_POSITION", position)
+            startActivity(intent)
         }
     }
 }

@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -49,10 +50,14 @@ class StorageActivity : AppCompatActivity() {
 
 
         finishButton.setOnClickListener {
-                val storageName = mainNameStr?.text.toString().trim()
-                val storageAddress = deck?.text.toString().trim()
+            val storageName = mainNameStr.text.toString().trim()
+            val storageAddress = deck.text.toString().trim()
+            if (storageName.isNotEmpty() and storageAddress.isNotEmpty() ) {
                 val store = Store(storageName, storageAddress)
                 storeDb.addStore(store)
+                Toast.makeText(this, "сохранено", Toast.LENGTH_SHORT).show()
+            }
+            else Toast.makeText(this, "добавьте название", Toast.LENGTH_SHORT).show()
 
         }
 

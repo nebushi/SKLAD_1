@@ -48,14 +48,14 @@ class str1 : AppCompatActivity() {
             val  itemName = MainNameo.text.toString().trim()
             val itemDeck = Numm.text.toString().trim()
 
-            if (itemName.isNotEmpty()) {
-                Toast.makeText(this, "saved", Toast.LENGTH_SHORT).show()
+            if (itemName.isNotEmpty() and itemDeck.isNotEmpty()) {
+                Toast.makeText(this, "cохранено", Toast.LENGTH_SHORT).show()
                 storeDb.addItem(Item(itemName, itemDeck))
                 Log.i("Items",
                     storeDb.getItems().map { "${it.id} , ${it.name}, ${it.description}" }.joinToString(";"))
             }
 
-            else Toast.makeText(this, "nothing to save", Toast.LENGTH_SHORT).show()
+            else Toast.makeText(this, "добавьте имя", Toast.LENGTH_SHORT).show()
         }
 
     }

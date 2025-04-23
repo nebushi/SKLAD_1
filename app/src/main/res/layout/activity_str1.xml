@@ -33,30 +33,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.155" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="261dp"
-        android:layout_height="42dp"
-        android:text="storages"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441" />
-
     <Button
         android:id="@+id/saveB"
-        android:layout_width="141dp"
-        android:layout_height="68dp"
+        android:layout_width="135dp"
+        android:layout_height="59dp"
         android:text="сохранить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.034" />
 
     <EditText
         android:id="@+id/numbers"
